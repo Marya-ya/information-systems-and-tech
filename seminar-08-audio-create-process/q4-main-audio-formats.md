@@ -156,8 +156,8 @@
 
 ```mermaid
 flowchart LR
-    A[PCM / Мастер (WAV/AIFF)] --> B1[Lossless\n(FLAC, ALAC, WAV)]
-    A --> B2[Lossy\n(MP3, AAC, Ogg, Opus, WMA)]
+    A[PCM / Мастер (WAV/AIFF)] --> B1[Lossless<br>(FLAC, ALAC, WAV)]
+    A --> B2[Lossy<br>(MP3, AAC, Ogg, Opus, WMA)]
     B1 --> C1[Архив / Студия]
     B2 --> C2[Стриминг / Мобильное прослушивание / Радио]
     B2 --> C3[VoIP / Игры (Opus)]
