@@ -71,5 +71,5 @@
 **А что выберете вы? Будете хранить музыку в несжатых архивах как цифровой аудиофил-аристократ? Или вас устраивает демократичный фастфуд от стриминговых сервисов?**
 
 ССЫЛКА НА ГУГЛ ДИСК С ВИДЕО: https://drive.google.com/drive/folders/1ixCNb1_sOerdyZfW5L5hw2AwxXzf7tv5?usp=sharing
-ССЫЛКА НА ВИДЕО: *будет*
-ВИДЕО: *будет*
+ССЫЛКА НА ВИДЕО: https://drive.google.com/file/d/1-FIPKGo9vFuKHzSER8flVBS5WnQkJ__R/view?usp=drive_link
+ВИДЕО: s8-q4-video
