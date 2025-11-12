@@ -1,39 +1,54 @@
-% Реферат по теме "Технологии создания и обработки графических данных"
-\documentclass{SibFU-docs}
+% реферат по теме "Технологии создания и обработки графических данных"
 
-% Кодировка и русская локализация
-\usepackage[utf8]{inputenc}
-\usepackage[T2A]{fontenc}
-\usepackage[russian]{babel}
+\documentclass{SibFU-docs}
 \usepackage{newtxtext}
 \usepackage{newtxmath}
 
-% Дополнительные пакеты
+% графика и математика
 \usepackage{graphicx}
 \usepackage{amsmath}
+
+% листинги кода
 \usepackage{listings}
-\usepackage{xcolor}
+\lstset{basicstyle=\ttfamily\small,breaklines=true,frame=single}
+
+% таблицы и выравнивания
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+
+% подписи и компоновка
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+
+% микротипография
+\usepackage[expansion=false]{microtype}
+
+% гиперссылки
 \usepackage{hyperref}
-
-% Настройка библиографии
-\addbibresource{report.bib}
-
-% Настройка листингов для кода
-\lstset{
-    basicstyle=\ttfamily\small,
-    breaklines=true,
-    frame=single,
-    numbers=left,
-    numberstyle=\tiny,
-    keywordstyle=\color{blue},
-    commentstyle=\color{green!60!black},
-    stringstyle=\color{red}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=blue,
+    urlcolor=blue,
+    pdfauthor={Студенты ГФ25-02Б},
+    pdftitle={Технологии создания и обработки графических данных}
 }
 
+% библиография: используем локальный bib-файл для графического реферата
+\addbibresource{report.bib}
+
+% ===== условные определения шрифтовых команд =====
+\makeatletter
+\@ifundefined{setmainfont}{\newcommand{\setmainfont}[2][]{}}{}
+\@ifundefined{setsansfont}{\newcommand{\setsansfont}[2][]{}}{}
+\@ifundefined{setmonofont}{\newcommand{\setmonofont}[2][]{}}{}
+\makeatother
 
 \begin{document}
 
-% Титульный лист
+% титульный лист
 \makecovertitle{Гуманитарный институт}
 {Прикладная информатика в искусстве и интерактивных медиа}
 {ТЕХНОЛОГИИ СОЗДАНИЯ И ОБРАБОТКИ ГРАФИЧЕСКИХ ДАННЫХ}
