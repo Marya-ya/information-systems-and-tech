@@ -1,12 +1,12 @@
 % класс документов для рефератов
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{SibFU-docs}[2025/11/06 v1.0 SibFU Documents Class]
+\ProvidesClass{SibFU-docs}
 
-% загружаем базовой класс article
-\LoadClass[14pt,a4paper]{article}
+% загрузка базового класса extarticle (что поддерживает 14pt)
+\LoadClass[14pt,a4paper]{extarticle}
 
-% подключаем необходимые пакеты
+% подключаем необходимые пакеты (в правильном порядке)
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T2A]{fontenc}
 \RequirePackage[russian]{babel}
@@ -14,14 +14,29 @@
 \RequirePackage{setspace}
 \RequirePackage{indentfirst}
 \RequirePackage{titlesec}
-\RequirePackage[style=gost-numeric,backend=biber,sorting=none]{biblatex}
+% Times-подобный шрифт с кириллицей для pdflatex
+\RequirePackage{tgtermes}
+% математические шрифты
+\RequirePackage{newtxmath}
+
+% biblatex с правильной конфигурацией для русского языка
+\RequirePackage{csquotes}
+\RequirePackage[
+    style=gost-numeric,
+    backend=biber,
+    sorting=none,
+    autolang=other,
+    language=auto
+]{biblatex}
 
 % настройка полей страницы по СТУ
 \geometry{
     left=30mm,
-    right=15mm,
+    right=10mm,
     top=20mm,
-    bottom=20mm
+    bottom=20mm,
+    headsep=10mm,
+    bindingoffset=0mm
 }
 
 % настройка межстрочного интервала (1.5)
@@ -40,60 +55,55 @@
 \pagenumbering{arabic}
 \pagestyle{plain}
 
-% библиография:
-
-% титульный лист
-\newcommand{\makecovertitle}[5]{
+% титульный лист:
+% 1 - институт
+% 2 - кафедра
+% 3 - название работы
+% 4 - группа
+% 5 - ФИО студента(ов)
+% 6 - руководитель (ФИО, должность)
+\newcommand{\makecovertitle}[6]{%
     \begin{titlepage}
+        	\thispagestyle{empty}
         \begin{center}
-            \large
-            МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ\\
-            РОССИЙСКОЙ ФЕДЕРАЦИИ
-            
-            \vspace{0.5cm}
-            
-            Федеральное государственное автономное\\
-            образовательное учреждение высшего образования\\
-            «СИБИРСКИЙ ФЕДЕРАЛЬНЫЙ УНИВЕРСИТЕТ»
-            
-            \vspace{0.5cm}
-            
-            #1 % Институт
-            
-            \vspace{0.5cm}
-            
-            #2 % Кафедра
-            
-            \vspace{3cm}
-            
-            \textbf{\Large #3} % Название работы
-            
-            \vspace{3cm}
+            {\fontsize{12}{14}\selectfont\bfseries\MakeUppercase{Министерство науки и высшего образования}}\\[2mm]
+            {\fontsize{12}{14}\selectfont\MakeUppercase{Российской Федерации}}\\[6mm]
+
+            {\fontsize{11}{13}\selectfont Федеральное государственное автономное}\\
+            {\fontsize{11}{13}\selectfont образовательное учреждение высшего образования}\\
+            {\fontsize{12}{14}\selectfont\textbf{«Сибирский федеральный университет»}}\\[10mm]
+
+            {\fontsize{14}{16}\selectfont\textbf{#1}}\\[1mm]
+            {\fontsize{14}{16}\selectfont\textbf{#2}}\\[18mm]
+
+            {\bfseries\fontsize{20}{24}\selectfont #3}\\[0pt]
         \end{center}
-        
+
+        \vspace{28mm}
         \begin{flushright}
-            \large
-            Выполнили:\\
-            студенты группы #4\\
-            #5 % ФИО студентов
+            {\fontsize{12}{14}\selectfont Выполнил(и):}\\[2mm]
+            {\fontsize{12}{14}\selectfont студент(ы) группы \textbf{#4}}\\[2mm]
+            {\fontsize{12}{14}\selectfont \textbf{#5}}\\[6mm]
+            {\fontsize{12}{14}\selectfont Руководитель: \textbf{#6}}
         \end{flushright}
-        
+
         \vfill
-        
         \begin{center}
-            \large
-            Красноярск \the\year
+            {\fontsize{12}{14}\selectfont Красноярск, \the\year}
         \end{center}
     \end{titlepage}
+    \clearpage
 }
 
 % переопределение команды секции содержания
 \renewcommand{\contentsname}{СОДЕРЖАНИЕ}
-
-% настройка отступов в содержании
 \RequirePackage{tocloft}
-\setlength{\cftbeforesecskip}{5pt}
-\setlength{\cftbeforesubsecskip}{5pt}
+\setlength{\cftbeforesecskip}{3pt}
+\setlength{\cftbeforesubsecskip}{2pt}
+\addto\captionsrussian{\renewcommand{\contentsname}{СОДЕРЖАНИЕ}}
 
 % настройка списка литературы
-\defbibheading{bibliography}{\section*{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}}
+\defbibheading{bibliography}[\bibname]{%
+    \section*{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}%
+    \addcontentsline{toc}{section}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}%
+}
