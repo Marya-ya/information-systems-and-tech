@@ -579,7 +579,7 @@ gantt
     
     section Обработка
     Расчёт отслеживания :s2, 3, 8ms
-    Scene Update :s3, 8, 13ms
+    Обновление сцены :s3, 8, 13ms
     Рендеринг :crit, s4, 13, 28ms
     
     section Дисплей
