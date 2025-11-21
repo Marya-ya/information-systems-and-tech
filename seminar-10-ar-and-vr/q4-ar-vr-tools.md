@@ -162,26 +162,26 @@ quadrantChart
 ```mermaid
 graph TB
     subgraph ARKit
-        A1[iOS Устройства]
+        A1[iOS устройства]
         A2[Visual-Inertial SLAM]
-        A3[Plane Detection]
-        A4[Face Tracking]
-        A5[Object Recognition]
+        A3[Обнаружение плоскостей]
+        A4[Отслеживание лица]
+        A5[Распознавание объектов]
     end
     
     subgraph ARCore
         B1[Android/iOS]
         B2[Visual-Inertial SLAM]
-        B3[Plane Detection]
-        B4[Cloud Anchors]
-        B5[Light Estimation]
+        B3[Обнаружение плоскостей]
+        B4[Облачные якоря]
+        B5[Оценка освещения]
     end
     
     subgraph Vuforia
-        C1[Multi-Platform]
-        C2[Marker Tracking]
+        C1[Мультиплатформенность]
+        C2[Отслеживание маркеров]
         C3[Markerless SLAM]
-        C4[Object Tracking]
+        C4[Отслеживание объектов]
         C5[VuMarks]
     end
     
@@ -278,7 +278,7 @@ PBR рабочий процесс:
 
 ```mermaid
 graph LR
-    A[3D Модель] --> B[PBR Textures]
+    A[3D Модель] --> B[PBR Текстуры]
     
     B --> C[Albedo Map]
     B --> D[Normal Map]
@@ -286,16 +286,16 @@ graph LR
     B --> F[Metallic Map]
     B --> G[AO Map]
     
-    C --> H[Material]
+    C --> H[Материал]
     D --> H
     E --> H
     F --> H
     G --> H
     
     H --> I[Шейдер]
-    I --> J[Final Render]
+    I --> J[Финальный рендер]
     
-    K[Light] --> I
+    K[Свет] --> I
 ```
 
 PBR важна для VR/AR, потому что:
@@ -444,7 +444,7 @@ PBR важна для VR/AR, потому что:
 
 **Сравнение методов:**
 
-| Критерий | Контроллеры | Рука Tracking | Палец Tracking |
+| Критерий | Контроллеры | Hand Tracking | Finger Tracking |
 |---|---|---|---|
 | **Точность** | Высокая | Средняя | Очень высокая |
 | **Надежность** | Высокая | Средняя | Высокая |
@@ -525,20 +525,20 @@ xychart-beta
 
 ```mermaid
 flowchart TB
-    A[3D Audio Source X,Y,Z] --> B[HRTF Processing]
-    C[Head Position & Rotation] --> B
+    A[3D аудиоисточник X,Y,Z] --> B[HRTF обработка]
+    C[Положение и поворот головы] --> B
     
-    B --> D[Left Ear Channel]
-    B --> E[Right Ear Channel]
+    B --> D[Канал левого уха]
+    B --> E[Канал правого уха]
     
-    D --> F[Binaural Audio]
+    D --> F[Бинауральный звук]
     E --> F
     
     F --> G[Наушники]
-    G --> H[Восприятие 3D звука]
+    G --> H[Восприятие 3D-звука]
     
-    I[Reverb & Occlusion] --> B
-    J[Distance Attenuation] --> B
+    I[Реверберация и окклюзия] --> B
+    J[Затухание по расстоянию] --> B
 ```
 
 Реализация пространственного звука:
@@ -575,15 +575,15 @@ gantt
     Движение пользователя :milestone, m1, 2, 0ms
     
     section Сенсоры
-    IMU Sensing :active, s1, 0, 3ms
+    IMU чувствительность :active, s1, 0, 3ms
     
     section Обработка
-    Tracking Calculation :s2, 3, 8ms
+    Расчёт отслеживания :s2, 3, 8ms
     Scene Update :s3, 8, 13ms
-    Rendering :crit, s4, 13, 28ms
+    Рендеринг :crit, s4, 13, 28ms
     
     section Дисплей
-    Display Refresh :s5, 28, 35ms
+    Обновление дисплея :s5, 28, 35ms
     
     section Результат
     Видимое изображение :milestone, m2, 35, 0ms
