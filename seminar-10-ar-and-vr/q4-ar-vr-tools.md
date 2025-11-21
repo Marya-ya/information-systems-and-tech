@@ -566,7 +566,7 @@ flowchart TB
 
 ```mermaid
 gantt
-    title Motion-to-Photon Latency Pipeline
+    title Конвейер Motion-to-Photon Latency
     dateFormat X
     axisFormat %L ms
     
